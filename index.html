@@ -181,10 +181,11 @@
         }
 
         /* New Features */
-        .tax-presets {
+        .presets {
             display: flex;
             gap: 0.5rem;
             margin-top: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .preset-btn {
@@ -261,12 +262,29 @@
                 <span class="symbol">₹</span>
                 <input type="number" id="mrp" placeholder="Enter Price" oninput="calculate()">
             </div>
+            <div class="presets">
+                <button class="preset-btn" onclick="setValue('mrp', 30)">30</button>
+                <button class="preset-btn" onclick="setValue('mrp', 35)">35</button>
+                <button class="preset-btn" onclick="setValue('mrp', 40)">40</button>
+                <button class="preset-btn" onclick="setValue('mrp', 45)">45</button>
+                <button class="preset-btn" onclick="setValue('mrp', 50)">50</button>
+                <button class="preset-btn" onclick="setValue('mrp', 60)">60</button>
+                <button class="preset-btn" onclick="setValue('mrp', 70)">70</button>
+                <button class="preset-btn" onclick="setValue('mrp', 75)">75</button>
+                <button class="preset-btn" onclick="setValue('mrp', 80)">80</button>
+                <button class="preset-btn" onclick="setValue('mrp', 100)">100</button>
+            </div>
         </div>
 
         <div class="input-group">
             <label>Margin Percentage (%)</label>
             <div class="field no-sym">
                 <input type="number" id="margin" placeholder="0" oninput="calculate()">
+            </div>
+            <div class="presets">
+                <button class="preset-btn" onclick="setValue('margin', 25)">25%</button>
+                <button class="preset-btn" onclick="setValue('margin', 30)">30%</button>
+                <button class="preset-btn" onclick="setValue('margin', 35)">35%</button>
             </div>
         </div>
 
@@ -275,7 +293,8 @@
             <div class="field no-sym">
                 <input type="number" id="tax" step="0.01" value="1.05" oninput="calculate()">
             </div>
-            <div class="tax-presets">
+            <div class="presets">
+                <button class="preset-btn" onclick="setTax(1.00)">0%</button>
                 <button class="preset-btn" onclick="setTax(1.05)">5%</button>
                 <button class="preset-btn" onclick="setTax(1.12)">12%</button>
                 <button class="preset-btn" onclick="setTax(1.18)">18%</button>
@@ -332,6 +351,11 @@
         document.getElementById('mrp').value = '';
         document.getElementById('margin').value = '';
         document.getElementById('tax').value = '1.05';
+        calculate();
+    }
+
+    function setValue(id, val) {
+        document.getElementById(id).value = val;
         calculate();
     }
 
@@ -394,3 +418,6 @@
 
 </body>
 </html>
+
+       
+        
